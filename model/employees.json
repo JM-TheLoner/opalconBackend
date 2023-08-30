@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "firstname": "The",
+        "lastname": "Loner",
+        "gender":"male",
+        "email":"jmtheloner@gmail.com",
+        "phone_no":"09812309812"
+    },
+    {
+        "id":2,
+        "firstname": "New",
+        "lastname": "User",
+        "gender":"female",
+        "email":"newuser@gmail.com",
+        "phone_no":"09103764433"     
+    },
+    {
+        "id":3,
+        "firstname": "male",
+        "lastname": "User",
+        "gender":"female",
+        "email":"man@gmail.com",
+        "phone_no":"09072571994"     
+    },
+    {
+        "id":4,
+        "firstname": "female",
+        "lastname": "User",
+        "gender":"male",
+        "email":"woman@gmail.com",
+        "phone_no":"09925629866"     
+    }
+]
