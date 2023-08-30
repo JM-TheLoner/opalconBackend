@@ -11,3 +11,11 @@ First Project. Official Website for Opalcon Ltd.
 
 The code in this repository collects data from a database and performs operations on the data
 The code is made up mainly of Node.js code
+
+If you download this code, run "npm i" in your terminal. this installs all the dependencies used in production
+
+When you click the button, the server will be deployed on glitch.com
+
+i had environment variables set up in a .env file that i used to run the code
+the .env file is listed in the .gitignore file so it is not seen here
+add the required variables in the .env file provided by glitch
