@@ -5,7 +5,7 @@ const handleLogout = async (req,res)=>{
     if (!cookies?.jwt) return res.sendStatus(204)
 
     const refreshToken = cookies.jwt
-    const un = await User.findOne(refreshToken).exec()
+    const un = await User.findOne({refreshToken: refreshToken}).exec()
     if (!un) {
         res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', secure: true, maxAge: 24*60*60*1000})       //the arguments here are the same arguments from when we made the cookie in authController.js
         return res.sendStatus(204)
