@@ -30,15 +30,17 @@ app.use(cookieParser())                                             //middleware
 app.use('/', express.static(path.join(__dirname, '/public')))                
 
 app.use('/', require('./routes/root'))
+app.use('/forgot', require('./routes/api/forgot'))
 app.use('/login', require('./routes/auth'))
-app.use('/refresh', require('./routes/refresh'))
 app.use('/logout', require('./routes/logout'))
 app.use('/getservices', require('./routes/api/getservices'))
+app.use('/refresh', require('./routes/refresh'))
 
 app.use(verifyJWT)
 app.use('/employees', require('./routes/api/employees'))
 app.use('/services', require('./routes/api/services'))
 app.use('/users', require('./routes/api/users'))
+app.use('/user', require('./routes/api/user'))
 
 app.all('*', (req, res)=>{                                           //the * means all so this means all urls with given port give this
     res.status(404)

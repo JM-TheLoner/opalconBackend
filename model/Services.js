@@ -14,7 +14,20 @@ const serviceSchema = new Schema({
     price_range: {
         type: String,
         required: false
+    },
+    image_one:{
+        type: String,
+        required: false
+    },
+    image_two:{
+        type: String,
+        required: false
+    },
+    image_three:{
+        type: String,
+        required: false
     }
-})
+     
+   })
 
 module.exports = mongoose.model('Service', serviceSchema)

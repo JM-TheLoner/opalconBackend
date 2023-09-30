@@ -1,6 +1,6 @@
 # opalconBackend
 
-First Project. Official Website for Opalcon Ltd.
+First Project. Website for Opalcon Ltd.
 
 
 [ <img src="https://cdn.gomix.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Fremix-button.svg" width="163px" />](https://glitch.com/edit/#!/import/github/JM-TheLoner/opalconBackend)

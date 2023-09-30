@@ -15,7 +15,10 @@ const createNewService = async (req, res)=>{
 		const result = await Service.create({
 			name : req.body.name,
 			description : req.body.desc,
-            price_range: req.body.price
+            price_range: req.body.price,
+            image_one: req.body.imgone,
+            image_two: req.body.imgtwo,
+            image_three: req.body.imgthree
 		})
 		
 			res.status(201).json(result)
@@ -35,8 +38,11 @@ const updateService = async (req, res)=>{
     if (req.body?.name) service.name = req.body.name
     if (req.body?.desc) service.description = req.body.desc
     if (req.body?.price) service.price_range = req.body.price
-    
-    const result = await service.save()
+    if (req.body?.imgone) service.image_one = req.body.imgone
+    if (req.body?.imgtwo) service.image_two= req.body.imgtwo
+    if (req.body?.imgthree) service.image_three = req.body.imgthree
+ 
+  const result = await service.save()
     res.json(result)
 }
 

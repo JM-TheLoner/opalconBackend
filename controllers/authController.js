@@ -11,7 +11,7 @@ const handleLogin = async (req,res)=>{
     if (pd) {
         const roles = Object.values(un.roles)
         const accessToken = jwt.sign(           //defining the access token
-            {"userInfo": {
+            {"userInfo": { 
                     "username":un.username,
                     "roles" : roles
                 }
@@ -27,6 +27,7 @@ const handleLogin = async (req,res)=>{
         un.refreshToken = refreshToken
         const result = await un.save()
         console.log(result)
+        res.json(result)
         res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24*60*60*1000})   //the math here is trying to calculate one day in milliseconds
         res.json({ accessToken })
     } else{

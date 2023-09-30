@@ -46,6 +46,29 @@ const updateUser = async (req, res)=>{
     res.json(result)
 }
 
+const forgotPassword = async (req, res)=>{
+    if (!req?.body?.id){
+		return res.status(400).json({'message':'ID parameter is required'})
+	}
+	const user = await User.findOne({ _id: req.body.id}).exec()		
+    if (!user) {
+        return res.status(204).send(`the user: ${req.body.id} doesnt exist`)
+    } 
+    if (req.body?.pwd) {
+        if (!req.body.conf){
+            return res.status(400).json({'message':'Please Confirm The Password'})
+        }
+        if (req.body.pwd !== req.body.conf){
+            return res.status(400).json({'message':'Passwords do not match'})
+        }
+        if (req.body.pwd === req.body.conf){
+        const hashedPwd = await bcrypt.hash(req.body.pwd, 10)
+        user.password = hashedPwd}
+    }
+    const result = await user.save()
+    res.json(result)
+}
+
 const deleteUser = async (req, res)=>{
     if (!req?.body?.id) {
         return res.status(400).json({'message':'ID parameter is required'})
@@ -61,6 +84,15 @@ const deleteUser = async (req, res)=>{
 const getUser = async (req, res)=>{
     if (!req?.params?.id) return res.status(400).json({'message':'ID parameter is required'})
     const user = await User.findOne({ _id: req.params.id}).exec()		
+    if (!user) {
+        return res.status(204).send(`the user: ${req.body.id} doesnt exist`)
+    } 
+    res.json(user)
+}
+
+const getUserByName = async (req, res)=>{
+    if (!req?.body?.name) return res.status(400).json({'message':'ID parameter is required'})
+    const user = await User.findOne({ username: req.body.name}).exec()		
     if (!user) {
         return res.status(204).send(`the user: ${req.body.id} doesnt exist`)
     } 
